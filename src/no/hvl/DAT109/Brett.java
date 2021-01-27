@@ -29,7 +29,11 @@ public class Brett {
         int j = (x / 10); // 1
         int k = (x % 10)-1; // 1
         int l = eksempelBrett[j][k];
-        return l;
+        return l; // stige / slange
+    }
+
+    public int getNyPos(int x){
+       return x + getRuteVerdi(x);
     }
 
 
