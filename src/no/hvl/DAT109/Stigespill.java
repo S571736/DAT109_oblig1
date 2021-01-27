@@ -23,6 +23,7 @@ public class Stigespill {
     }
 
     public void spill() {
+        System.out.println("Starter spill");
         while (vunnet == null) {
             spillRunde();
         }

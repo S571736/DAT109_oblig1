@@ -22,6 +22,7 @@ public class Spiller {
         this.posisjon = 0;
     }
 
+
     /**
      *
      * @param endrePos nye posisjonen til spiller

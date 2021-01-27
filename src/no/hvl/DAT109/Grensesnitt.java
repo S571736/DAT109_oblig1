@@ -8,6 +8,7 @@ public class Grensesnitt {
 
     public Grensesnitt(Stigespill stigespill){
         this.stigespill = stigespill;
+        this.spillere = new ArrayList<Spiller>(4);
     }
 
     public void start(){
