@@ -2,20 +2,15 @@ package no.hvl.DAT109;
 
 public class Stigespill {
 
-
-    public static void main(String[] args) {
+    public Stigespill() {
         Brett brett = new Brett();
         Spiller s1 = new Spiller(1, "Sondre");
         Terning terning = new Terning();
         boolean vunnet = false;
-
-
-
-        while (false) {
-            vunnet = spillRunde(brett, s1, terning, vunnet);
-        }
+        // private Spiller vunnet;
 
     }
+
 
     public void setup() {
         // antall spillere? sysout
@@ -24,10 +19,12 @@ public class Stigespill {
 
         // starter brett
 
-
     }
 
-    public static boolean spillRunde(Brett brett, Spiller spiller, Terning terning, Boolean vunnet) {
+    public void spill() {
+    }
+
+    public boolean spillRunde(Brett brett, Spiller spiller, Terning terning, Boolean vunnet) {
         String navn = spiller.getNavn();
 
 
@@ -46,11 +43,16 @@ public class Stigespill {
             System.out.println(navn + "Du landet trygt på " + spillerPos);
         }
 
-        if (spillerPos >= 100){
+        if (spillerPos >= 100) {
             vunnet = true;
         }
         return vunnet;
     }
+
+    // public boolean harVunnet(Spiller a) {
+    //pos = 100
+}
+
 
 
 }
