@@ -1,0 +1,44 @@
+@startuml
+class Brett{
+    Rute[] rute
+    flyttBrikke(Brikke, plasser)
+}
+class Brikke{
+    Integer rute
+    Integer id
+    getRute()
+    setRute()
+}
+
+
+class Terning{
+    Integer verdi
+    trill()
+    getVerdi()
+}
+
+class Spiller{
+    Brikke brikke
+    String navn
+    spillTrekk()
+    getBrikke()
+    toString()
+}
+
+class Stigespill{
+    Brett brett
+    Spiller[] spillere
+    Terning terning
+    opprettSpiller()
+    spillRunde()
+    vinner()
+    startSpill()
+    getVinner()
+}
+Stigespill <|-- Spiller
+Stigespill <|-- Terning
+Stigespill <|-- Brett
+Spiller <|-- Brikke
+Brett <|-- Brikke
+
+@enduml
