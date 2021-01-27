@@ -30,6 +30,10 @@ public class Spiller {
         this.posisjon = endrePos;
     }
 
+    /**
+     *
+     * @return navn navnet til spilleren
+     */
     public String getNavn(){
         return navn;
     }

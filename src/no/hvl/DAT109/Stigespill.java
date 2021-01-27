@@ -1,58 +1,70 @@
 package no.hvl.DAT109;
 
+import java.util.ArrayList;
+
 public class Stigespill {
 
+    public ArrayList<Spiller> spillere;
+    private Spiller vunnet;
+    private Brett brett;
+    private Terning terning;
+
     public Stigespill() {
-        Brett brett = new Brett();
-        Spiller s1 = new Spiller(1, "Sondre");
-        Terning terning = new Terning();
-        boolean vunnet = false;
-        // private Spiller vunnet;
+        this.brett = new Brett();
+        this.spillere = new ArrayList<Spiller>();
+        this.terning = new Terning();
+        this.vunnet = null;
+
 
     }
 
 
-    public void setup() {
-        // antall spillere? sysout
-//
-        // oppretter spillere // for loop
-
-        // starter brett
-
+    public void setup(ArrayList<Spiller> spillere) {
+        this.spillere = spillere;
     }
 
     public void spill() {
+        while (vunnet == null) {
+            spillRunde();
+        }
     }
 
-    public boolean spillRunde(Brett brett, Spiller spiller, Terning terning, Boolean vunnet) {
-        String navn = spiller.getNavn();
+    public void spillRunde() {
+
+        for (Spiller spiller : spillere) {
+            String navn = spiller.getNavn();
+            int spillerPos = spiller.getPosisjon();
+            int trillet = terning.trillTerning();
+
+            if (!(spillerPos + trillet > 100)) {
 
 
-        spiller.endrePos(terning.trillTerning());
-        int spillerPos = spiller.getPosisjon();
+                spiller.endrePos(trillet);
 
-        int endring = brett.getRuteVerdi(spiller.getPosisjon());
+                if (spillerPos == 100) {
+                    this.vunnet = spiller;
+                    System.out.println(navn + " vinner spillet!");
 
-        if (endring < 0) {
-            System.out.println(spiller.getNavn() + " møtte på en slange, du rykker tilbake til " + brett.getNyPos(spillerPos));
-            spiller.endrePos(brett.getNyPos(spillerPos));
-        } else if (endring > 0) {
-            System.out.println(navn + " møtte på en stige, du går fram til " + brett.getNyPos(spillerPos));
-            spiller.endrePos(brett.getNyPos(spillerPos));
-        } else {
-            System.out.println(navn + "Du landet trygt på " + spillerPos);
+                } else {
+
+                    int endring = brett.getRuteVerdi(spiller.getPosisjon());
+
+                    if (endring < 0) {
+                        System.out.println(spiller.getNavn() + " møtte på en slange, du rykker tilbake til " + brett.getNyPos(spillerPos));
+                        spiller.endrePos(brett.getNyPos(spillerPos));
+                    } else if (endring > 0) {
+                        System.out.println(navn + " møtte på en stige, du går fram til " + brett.getNyPos(spillerPos));
+                        spiller.endrePos(brett.getNyPos(spillerPos));
+                    } else {
+                        System.out.println(navn + "Du landet trygt på " + spillerPos);
+                    }
+                }
+
+            } else {
+                System.out.println(navn + " havnet utenfor brettet, og blir dermed stående");
+            }
         }
-
-        if (spillerPos >= 100) {
-            vunnet = true;
-        }
-        return vunnet;
     }
-
-    // public boolean harVunnet(Spiller a) {
-    //pos = 100
-}
-
 
 
 }
