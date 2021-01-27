@@ -2,6 +2,8 @@ package no.hvl.DAT109;
 
 /**
  * @author Sondre Lindaas Gjesdal
+ * @author Sander Lynbø
+ * @date 27.01.2021
  */
 public class Spiller {
 
