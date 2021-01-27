@@ -24,11 +24,17 @@ public class Spiller {
 
     /**
      *
-     * @param nyPos nye posisjonen til spiller
+     * @param endrePos nye posisjonen til spiller
      */
-    public void endrePos(int nyPos){
-        this.posisjon = nyPos;
+    public void endrePos(int endrePos){
+        this.posisjon = endrePos;
     }
 
+    public String getNavn(){
+        return navn;
+    }
 
+    public int getPosisjon(){
+        return posisjon;
+    }
 }

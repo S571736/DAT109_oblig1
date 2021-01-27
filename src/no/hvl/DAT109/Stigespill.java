@@ -4,28 +4,52 @@ public class Stigespill {
 
 
     public static void main(String[] args) {
+        Brett brett = new Brett();
+        Spiller s1 = new Spiller(1, "Sondre");
+        Terning terning = new Terning();
+        boolean vunnet = false;
 
 
+
+        while (false) {
+            vunnet = spillRunde(brett, s1, terning, vunnet);
+        }
 
     }
 
-    public void setup(){
+    public void setup() {
         // antall spillere? sysout
 //
         // oppretter spillere // for loop
 
         // starter brett
-        Brett brett = new Brett();
+
 
     }
 
-    public void spill(){
+    public static boolean spillRunde(Brett brett, Spiller spiller, Terning terning, Boolean vunnet) {
+        String navn = spiller.getNavn();
 
-        // spiller0/1 0 triller terning 5 -> 5 -> henter pos fra brett -> -2. hvis endring / flyttes med en gang. Vent
-        // neste spiller
 
-        // spillere triller terning
-        // spiller flytter - endre pos - henter evt verdi fra matrise
+        spiller.endrePos(terning.trillTerning());
+        int spillerPos = spiller.getPosisjon();
+
+        int endring = brett.getRuteVerdi(spiller.getPosisjon());
+
+        if (endring < 0) {
+            System.out.println(spiller.getNavn() + " møtte på en slange, du rykker tilbake til " + brett.getNyPos(spillerPos));
+            spiller.endrePos(brett.getNyPos(spillerPos));
+        } else if (endring > 0) {
+            System.out.println(navn + " møtte på en stige, du går fram til " + brett.getNyPos(spillerPos));
+            spiller.endrePos(brett.getNyPos(spillerPos));
+        } else {
+            System.out.println(navn + "Du landet trygt på " + spillerPos);
+        }
+
+        if (spillerPos >= 100){
+            vunnet = true;
+        }
+        return vunnet;
     }
 
 
