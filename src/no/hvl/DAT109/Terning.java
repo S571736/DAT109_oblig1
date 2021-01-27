@@ -17,7 +17,6 @@ public class Terning {
 
 
     /**
-     *
      * @return verdi the value shown on the dice
      */
     public int getVerdi(){
