@@ -1,25 +1,40 @@
 package no.hvl.DAT109;
 
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ * @author Sondre Lindaas Gjesdal
+ * @author Sander Lyngbø
+ * @date 27.01.2021
+ */
 public class Grensesnitt {
     private Stigespill stigespill;
     private ArrayList<Spiller> spillere;
 
-    public Grensesnitt(Stigespill stigespill){
+    public Grensesnitt(Stigespill stigespill) {
         this.stigespill = stigespill;
         this.spillere = new ArrayList<Spiller>(4);
     }
 
-    public void start(){
+    public void start() {
 
-        // ett eller annet input for dialog mot bruker
-        // hvor mange spiller?
+        System.out.println("Hvor mange spillere ønsker du? (2-4)");
+        Scanner scanner = new Scanner(System.in);
+        int i = scanner.nextInt();
 
-        // for loop
-        Spiller s1 = new Spiller(1, "Sondre");
-        spillere.add(s1);
-        // legge til spillere
+        // Look at this magnificent recursive call!!!
+        if (i < 2 && i > 4) {
+            start();
+        }
+
+        for (int j = 0; j < i; j++) {
+            System.out.println("Skriv inn navn på spiller " + (j + 1));
+            String navn = scanner.next();
+            Spiller s = new Spiller(j, navn);
+            spillere.add(s);
+        }
 
 
         stigespill.setup(spillere); //legger spillere inn i stigespillet

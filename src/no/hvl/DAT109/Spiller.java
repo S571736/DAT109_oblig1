@@ -12,11 +12,10 @@ public class Spiller {
     int posisjon;
 
     /**
-     *
-     * @param id spiller id
+     * @param id   spiller id
      * @param navn navnet på spilleren
      */
-    public Spiller(int id, String navn){
+    public Spiller(int id, String navn) {
         this.id = id;
         this.navn = navn;
         this.posisjon = 0;
@@ -24,22 +23,24 @@ public class Spiller {
 
 
     /**
-     *
      * @param endrePos nye posisjonen til spiller
      */
-    public void endrePos(int endrePos){
-        this.posisjon = endrePos;
+    public void endrePos(int endrePos) {
+        this.posisjon += endrePos;
     }
 
     /**
-     *
      * @return navn navnet til spilleren
      */
-    public String getNavn(){
+    public String getNavn() {
         return navn;
     }
 
-    public int getPosisjon(){
+    public int getPosisjon() {
         return posisjon;
+    }
+
+    public void setPos(int i) {
+        this.posisjon = i;
     }
 }
