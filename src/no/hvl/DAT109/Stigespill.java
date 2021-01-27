@@ -15,7 +15,6 @@ public class Stigespill {
         this.terning = new Terning();
         this.vunnet = null;
 
-
     }
 
 
@@ -37,7 +36,6 @@ public class Stigespill {
             int trillet = terning.trillTerning();
 
             if (!(spillerPos + trillet > 100)) {
-
 
                 spiller.endrePos(trillet);
 
