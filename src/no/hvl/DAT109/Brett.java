@@ -14,15 +14,15 @@ public class Brett {
         //legger ikkje inn noe spesielle verdier i tabellen, fordi ork
         this.eksempelBrett = new int[][]
                 {{0, 0, 10, 0, 0, 9, 0, 0, 0, 0},
-                        {-10, 0, 0, -6, 0, 0, 8, 0, 0, 0},
-                        {0, 0, 0, -20, 0, 0, 30, 0, 0, 1},
-                        {0, 0, -25, 0, 0, 37, 0, 0, 15, 0},
-                        {-1, 0, -8, 0, 0, 0, 0, 17, 0, 0},
-                        {0, -13, 0, 0, 0, 11, 0, 0, 0, -27},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+                {-10, 0, 0, -6, 0, 0, 8, 0, 0, 0},
+                {0, 0, 0, -20, 0, 0, 30, 0, 0, 1},
+                {0, 0, -25, 0, 0, 37, 0, 0, 15, 0},
+                {-1, 0, -8, 0, 0, 0, 0, 17, 0, 0},
+                {0, -13, 0, 0, 0, 11, 0, 0, 0, -27},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
     }
 
     /**
@@ -34,7 +34,7 @@ public class Brett {
         int j, k, l;
         if (ruteNummer > 9) {
             j = (ruteNummer / 10);
-            k = (ruteNummer % 10) - 1;
+            k = (ruteNummer % 10);
             if (k < 0) {
                 k = 0;
             }
@@ -48,8 +48,8 @@ public class Brett {
     }
 
     /**
-     *
-     * @param x
+     * Denne er egentlig bare endre posisjon for spilleren, sånn som det er i spillerklassen
+     * @param x posisjonen som spilleren står i for øyeblikket
      * @return
      */
     public int getNyPos(int x) {
