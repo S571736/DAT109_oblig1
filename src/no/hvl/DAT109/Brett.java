@@ -25,23 +25,33 @@ public class Brett {
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
     }
 
-    public int getRuteVerdi(int x) {
+    /**
+     *
+     * @param ruteNummer rutenummer vi ønsker verdien på
+     * @return verdien i ruten
+     */
+    public int getRuteVerdi(int ruteNummer) {
         int j, k, l;
-        if (x > 9) {
-            j = (x / 10);
-            k = (x % 10) - 1;
+        if (ruteNummer > 9) {
+            j = (ruteNummer / 10);
+            k = (ruteNummer % 10) - 1;
             if (k < 0) {
                 k = 0;
             }
             l = eksempelBrett[j][k];
         } else { // 0-9
             j = 0;
-            l = eksempelBrett[j][x];
+            l = eksempelBrett[j][ruteNummer];
 
         }
         return l; // stige / slange
     }
 
+    /**
+     *
+     * @param x
+     * @return
+     */
     public int getNyPos(int x) {
         return x + getRuteVerdi(x);
     }

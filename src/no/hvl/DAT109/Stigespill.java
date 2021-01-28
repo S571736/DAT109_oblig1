@@ -3,6 +3,13 @@ package no.hvl.DAT109;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Sondre Lindaas Gjesdal
+ * @author Sander Lyngbø
+ * @date 27.01.2021
+ *
+ *
+ */
 public class Stigespill {
 
     public ArrayList<Spiller> spillere;
@@ -18,11 +25,17 @@ public class Stigespill {
 
     }
 
-
+    /**
+     *
+     * @param spillere legger inn spillere i listen
+     */
     public void setup(ArrayList<Spiller> spillere) {
         this.spillere = spillere;
     }
 
+    /**
+     * hoved metoden for spillet
+     */
     public void spill() {
         System.out.println("Starter spill");
 
@@ -32,7 +45,9 @@ public class Stigespill {
         }
     }
 
-
+    /**
+     * Hver spillrunde
+     */
     public void spillRunde() {
 
         for (Spiller spiller : spillere) {

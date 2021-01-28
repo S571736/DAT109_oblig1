@@ -36,11 +36,19 @@ public class Spiller {
         return navn;
     }
 
+    /**
+     *
+     * @return rutenummeret til spilleren
+     */
     public int getPosisjon() {
         return posisjon;
     }
 
-    public void setPos(int i) {
-        this.posisjon = i;
+    /**
+     *
+     * @param pos posisjonen som spiller skal stå i
+     */
+    public void setPos(int pos) {
+        this.posisjon = pos;
     }
 }
