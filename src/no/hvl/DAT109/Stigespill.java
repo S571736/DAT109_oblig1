@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Stigespill {
 
     public ArrayList<Spiller> spillere;
-    private Spiller vunnet;
+    private Spiller vinner;
     private Brett brett;
     private Terning terning;
 
@@ -21,7 +21,7 @@ public class Stigespill {
         this.brett = new Brett();
         this.spillere = new ArrayList<Spiller>();
         this.terning = new Terning();
-        this.vunnet = null;
+        this.vinner = null;
 
     }
 
@@ -40,7 +40,7 @@ public class Stigespill {
         System.out.println("Starter spill");
 
 
-        while (vunnet == null) {
+        while (vinner == null) {
             spillRunde();
         }
     }
@@ -65,12 +65,12 @@ public class Stigespill {
             // Logikk for å trille 6, 3 ganger
             if (trillet == 6) {
                 spiller.endrePos(6);
+                System.out.println(navn + " trillet " + trillet + ", går fram til " + spiller.getPosisjon());
                 trillet = terning.trillTerning();
-                System.out.println(navn + " trillet " + trillet);
                 if (trillet == 6) {
                     spiller.endrePos(6);
-                    trillet = terning.trillTerning();
                     System.out.println(navn + " trillet " + trillet);
+                    trillet = terning.trillTerning();
                     if (trillet == 6) {
                         spiller.setPos(0);
                         System.out.println("spiller " + navn + " trillet 6 ganger og rykker tilbake til 0");
@@ -80,8 +80,6 @@ public class Stigespill {
             }
 
             System.out.println(navn + " trillet " + trillet);
-
-
             spillerPos = spiller.getPosisjon();
 
             if (!(spillerPos + trillet > 100)) {
@@ -90,7 +88,7 @@ public class Stigespill {
                 spillerPos = spiller.getPosisjon();
 
                 if (spillerPos == 100) {
-                    this.vunnet = spiller;
+                    this.vinner = spiller;
                     System.out.println(navn + " vinner spillet!");
                     break;
 

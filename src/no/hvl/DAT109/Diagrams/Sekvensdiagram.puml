@@ -3,12 +3,15 @@ loop for hver spiller
     Spiller -> Stigespill
     Stigespill -> Terning : Trill()
     Terning -> Stigespill
-    Spiller -> Stigespill : flyttBrikke(brikke, plasser)
-    Stigespill -> Brett : flyttBrikke(brikke, plasser)
-    Brett -> Rute
+    Stigespill -> Spiller
+    Spiller -> Stigespill : endrePos()
+    Stigespill -> Brett : endrePos()
+
     alt Havner på stige/slange
-        Rute -> Rute
+        Brett -> Brett
     end
+    Brett -> Stigespill
+    Stigespill -> Spiller
     == Hvis 6'er fra trill(), utfør trill() igjen ==
 end
 

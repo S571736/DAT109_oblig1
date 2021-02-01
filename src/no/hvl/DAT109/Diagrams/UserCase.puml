@@ -1,8 +1,7 @@
 @startuml
 :User: -right-> (Trill Terning)
 (Trill Terning) -right-> :User med terning:
-:User med terning: -down-> (Flytter brikke)
-(Flytter brikke) -> (rute)
-(rute) -> (Flytter brikke)
-(Flytter brikke) -> User
+:User med terning: -down-> (Bytter pos)
+(Bytter pos) -> (Bytter pos)
+(Bytter pos) -> User
 @enduml

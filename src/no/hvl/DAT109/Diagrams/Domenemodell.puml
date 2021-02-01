@@ -1,44 +1,55 @@
 @startuml
 class Brett{
-    Rute[] rute
-    flyttBrikke(Brikke, plasser)
-}
-class Brikke{
-    Integer rute
-    Integer id
-    getRute()
-    setRute()
+    int[][] eksempelBrett
+    getRuteVerdi()
+    getNyPos()
 }
 
 
 class Terning{
-    Integer verdi
-    trill()
+    int range
+    int verdi
+    trillTerning()
     getVerdi()
 }
 
 class Spiller{
-    Brikke brikke
+    int id
+    int posisjon
     String navn
-    spillTrekk()
-    getBrikke()
-    toString()
+    endrePos()
+    getNavn()
+    getPosisjon()
+    setPos()
 }
 
 class Stigespill{
     Brett brett
-    Spiller[] spillere
+    ArrayList<Spiller> spillere
+    Spiller vinner
     Terning terning
-    opprettSpiller()
+
+    setup()
+    spill()
     spillRunde()
-    vinner()
-    startSpill()
-    getVinner()
 }
+
+class Main{
+    main()
+}
+
+class Grensesnitt{
+    Stigespill stigespill
+    ArrayList<Spiller> spillere
+    start()
+}
+
 Stigespill <|-- Spiller
 Stigespill <|-- Terning
 Stigespill <|-- Brett
-Spiller <|-- Brikke
-Brett <|-- Brikke
+Grensesnitt <|-- Stigespill
+Main <|-- Grensesnitt
+
+
 
 @enduml
